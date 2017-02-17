@@ -14,16 +14,27 @@ function buildPath(p,n){
 }
 
 function stroll(path,index){
-  if (index==path.length){
+  if (index==path.length-1){
     return 1;
   }
-  else if(index==path.length-1){
+  else if(index>=path.length){
     return 0;
   }
   else{
     return stroll(path,index++);
   }
 
+}
+function rsj(path,index){
+  if (index==path.length-1){
+  return 1;
+  }
+  else if(index>+path.length){
+  return 0;
+  }
+  else{
+  return rsj(path,index++) + rsj(path,index+2)+ rsj(path,index+5);
+  }
 }
 //Test code
 let testpath1 = buildPath(0.10,15);
